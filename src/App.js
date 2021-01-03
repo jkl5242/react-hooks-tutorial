@@ -11,6 +11,10 @@ const App = () => {
 
   const inputRef = useRef();
 
+  const hello = useRef(() => {
+    console.log("Hello");
+  });
+
 
   return (
   <div>
@@ -21,6 +25,7 @@ const App = () => {
     <input placeholder="firstname" name='firstName' value={values.firstName} onChange={handleChange}/>
     <input type="password" name='password' value={values.password} onChange={handleChange}></input>
     <button onClick={()=>{
+      hello.current();
       inputRef.current.focus();
     }}>focus</button>
     </>
