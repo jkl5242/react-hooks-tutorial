@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import { useForm } from './useForm';
 import { useFetch } from './useFetch';
 import { Hello } from './Hello';
@@ -10,10 +10,13 @@ const App = () => {
   const [showHello, setShowHello] = useState(true);
 
   const inputRef = useRef();
-
   const hello = useRef(() => {
     console.log("Hello");
   });
+
+  // useLayoutEffect(() => {
+  //   console.log(inputRef.current.getBoundingClientRect());
+  // }, []);
 
 
   return (
