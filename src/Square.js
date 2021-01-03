@@ -3,9 +3,9 @@ import { useFetch } from './useFetch';
 import { useMeasure } from './useMeasure';
 import { useCountRenders } from './useCountRenders';
 
-export const Hello = React.memo(({increment}) => {
+export const Square = React.memo(({n, increment}) => {
+    
+  useCountRenders();
 
-  //useCountRenders();
-
-  return <button onClick={() => increment(5) }>hello</button>
+  return <button onClick={() => increment(n)}>{n}</button>
 });
