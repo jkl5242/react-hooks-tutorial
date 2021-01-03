@@ -10,10 +10,8 @@ export const Hello = () => {
     useEffect(() => {
       localStorage.setItem('count', JSON.stringify(count))
     },[count])
-    
-    const divRef = useRef();
-
-    const rect = useMeasure(divRef, [data])
+  
+    const [rect, divRef] = useMeasure([data])
 
     return (
     <div>    

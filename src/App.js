@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import { useForm } from './useForm';
 import { useFetch } from './useFetch';
 import { Hello } from './Hello';
+import { useMeasure } from './useMeasure';
 
 const App = () => {
   const [values, handleChange] = useForm({email: '', password: '', firstName: ''});
@@ -14,9 +15,7 @@ const App = () => {
     console.log("Hello");
   });
 
-  // useLayoutEffect(() => {
-  //   console.log(inputRef.current.getBoundingClientRect());
-  // }, []);
+  const [rect, inputRef2] = useMeasure([])
 
 
   return (
@@ -25,7 +24,7 @@ const App = () => {
     <button onClick={()=> setShowHello(!showHello)}>toggle</button>
     {showHello && <Hello />}
     <input ref={inputRef} name='email' value={values.email} onChange={handleChange} />
-    <input placeholder="firstname" name='firstName' value={values.firstName} onChange={handleChange}/>
+    <input ref={inputRef2} placeholder="firstname" name='firstName' value={values.firstName} onChange={handleChange}/>
     <input type="password" name='password' value={values.password} onChange={handleChange}></input>
     <button onClick={()=>{
       hello.current();
